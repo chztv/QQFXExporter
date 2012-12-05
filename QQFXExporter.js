@@ -5,8 +5,6 @@
 
 
 
-
-
 //普通下载按钮
 		$('.btn_normal2').live("click",function(){		    
 			//获取选择的列表
@@ -70,7 +68,6 @@ var TLE = TLE || {};
 (function(TLE) {
 
   function init() {
-  	//alert("这是旋风下载测试!1234——init");
   	$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
 
     //css
@@ -93,18 +90,7 @@ var TLE = TLE || {};
           +'.rwbtn.ic_redownloca { display: none !important; }'
           +'.menu { width: 700px !important; }'
         +'</style>');
-    //pop
-    $("body").append('<div id="TLE_text_pop" class="pop_rwbox" style="display: none;margin: 0;"></div>');
-    $("body").append('<textarea id="TLE_text_tpl" style="display: none;"></textarea>');
-    $("#TLE_text_tpl").text('<div class="p_rw_pop">'
-                            +'<div class="tt_box onlytitle">'
-                              +'<h3>$[title]</h3>'
-                            +'</div>'
-                            +'<div class="psc_info">'
-                              +'$[content]'
-                            +'</div>'
-                            +'<a href="#" class="close" title="关闭">关闭</a>'
-                          +'</div>');
+
     //setting
     TLE.getConfig = function(key) {
       if (window.localStorage) {
@@ -126,32 +112,8 @@ var TLE = TLE || {};
 	} else {
 		var jsonrpc_path = "http://192.168.1.8:6800/jsonrpc";
 	};
-    if (TLE.getConfig("TLE_exporter") == "") {
-      var exporters = [];
-      for (var key in TLE.exporter) {
-        exporters.push(key);
-      };
-      TLE.setConfig("TLE_exporter", exporters.join("|"));
-    };
     //jsonrpc设置span
-    $("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置">保存</a></span>');
-    $("#setting_main_tpl").text($("#setting_main_tpl").text().replace(/(<\/div>\s+<div class="btnin">)/,
-          '<div class="doline mag01"></div>'
-            +'<h3 style="background-position: 0 -180px;">Thunder Lixian Exporter 设定</h3>'
-            +'<ul>'
-              +'<li><b>启用以下导出器</b></li>'
-              +'<li>'+(function(){
-                var enabled_exporter = TLE.getConfig("TLE_exporter").split("|");
-                var str = '';
-                for (var name in TLE.exporter) {
-                  str += '<span class="rw_col"><input type="checkbox" class="TLE_setting_ck" name="TLE_ck_'+name+'" '+(enabled_exporter.indexOf(name) == -1 ? "" : "checked")+' />'+name+'</span>';
-                }
-                return str;
-              })()+'</li>'
-              +'<li><b>Aria2 JSON-RPC Path</b></li>'
-              //+'<li>Path: <input type="text" id="TLE_aria2_jsonrpc" style="width: 350px" value="'+TLE.getConfig("TLE_aria2_jsonrpc")+'"/></li>'
-            +'</ul>'
-          +'$1'));
+
     var _set_notice_submit = set_notice_submit;
     set_notice_submit = function(f) {
 	  alert(jsonrpc_path);
@@ -183,74 +145,7 @@ var TLE = TLE || {};
       });
       return str;
     }
-    //down
-    $(".rwbtn.ic_redownloca").each(function(n, e) {
-      $(e).after('<div class="TLE_get_btnbox">'
-                  + '<span class="TLE_getlink">'
-                    + '<a href="#" class="TLE_link_gettxt TLE-down-text" style="padding-left: 20px; width: 57px;" onclick='+e.getAttribute("onclick")+'>取回本地</a>'
-                    + '<a href="#" class="TLE_link_getic TLE-down-btn" onclick="return TLE.getbtn(this);"></a>'
-                  + '</span>'
-                  + '<div class="TLE_p_getbtn TLE_getbtn" style="display: none;">'
-                    + exporter_anchors("TLE.down")
-                  + '</div>'
-                + '</div>');
-    });
 
-    //batch_down
-    $("#li_task_down").after('<a href="#" id="TLE_batch_down" title="批量导出" class="btn_m noit"><span><em class="icdwlocal">批量导出</em></span></a>')
-                      .parents(".main_link").append(
-                            '<div id="TLE_batch_getbtn" class="TLE_getbtn" style="top: 30px; display:none;">'
-                            + exporter_anchors("TLE.batch_down")
-                          + '</div>');
-    var _task_check_click = task_check_click;
-    task_check_click = function() {
-      _task_check_click();
-      if ($("#li_task_down").hasClass("noit")) {
-        $("#TLE_batch_down").addClass("noit").unbind("click");
-      } else {
-        $("#TLE_batch_down").removeClass("noit").unbind("click").click(function() {
-          $("#TLE_batch_getbtn").css("left", $("#TLE_batch_down").position().left);
-          $("#TLE_batch_getbtn").toggle();
-          return false;
-        });
-      };
-      //console.log("task_check_click called");
-    };
-    $('input[name=ck]').click(task_check_click);
-
-    //bt_down
-    $("#view_bt_list_nav_tpl").text($("#view_bt_list_nav_tpl").text().replace('取回本地</em></span></a>',
-          '取回本地</em></span></a>'
-          +'<a href="#" class="btn_m noit" title="批量导出" id="TLE_bt_down"><span><em class="icdwlocal">批量导出</em></span></a>'
-          +'<div id="TLE_bt_getbtn" class="TLE_getbtn" style="top: 30px; display:none;">'
-            + exporter_anchors("TLE.bt_down")
-          + '</div>'));
-    $("#view_bt_list_tpl").text($("#view_bt_list_tpl").text().replace('ic_redownloca" title="">取回本地</a>',
-        'ic_redownloca" title="">取回本地</a>'
-        +'<div class="TLE_get_btnbox">'
-          + '<span class="TLE_getlink">'
-            + '<a href="#" class="TLE_link_gettxt TLE-down-text" style="padding-left: 20px; width: 57px;" onclick="thunder_download($[p.i],1);return false;">取回本地</a>'
-            + '<a href="#" class="TLE_link_getic TLE-down-btn" onclick="return TLE.getbtn(this);"></a>'
-          + '</span>'
-          + '<div class="TLE_p_getbtn TLE_getbtn" style="display: none;">'
-            + exporter_anchors("TLE.bt_down_one")
-          + '</div>'
-        + '</div>'));
-    var _bt_view_nav = bt_view_nav;
-    bt_view_nav = function() {
-      _bt_view_nav();
-      if ($("#view_bt_list_nav_down").hasClass("noit")) {
-        $("#TLE_bt_down").addClass("noit").unbind("click");
-      } else {
-        $("#TLE_bt_down").removeClass("noit").unbind("click").click(function() {
-          $("#TLE_bt_getbtn").css("left", $("#TLE_bt_down").position().left);
-          $("#TLE_bt_getbtn").toggle();
-          return false;
-        });
-      };
-      $("#TLE_bt_getbtn").hide();
-      //console.log("bt_view_nav called");
-    };
 
     //close menu binding
     $(document.body).bind("click",function(){
