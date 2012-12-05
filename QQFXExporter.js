@@ -3,11 +3,7 @@
 //         http://www.chztv.com
 // Created on 12-12-4 AM1:19
 
-//if(TLE.getConfig("QQ_aria2_jsonrpc")){
-//	var jsonrpc_path = TLE.getConfig("QQ_aria2_jsonrpc");
-//} else {
-	var jsonrpc_path = "http://192.168.1.8:6800/jsonrpc";
-//};
+
 
 
 
@@ -125,6 +121,11 @@ var TLE = TLE || {};
       }
     };
     //set default config
+    if(TLE.getConfig("QQ_aria2_jsonrpc")){
+		var jsonrpc_path = TLE.getConfig("QQ_aria2_jsonrpc");
+	} else {
+		var jsonrpc_path = "http://192.168.1.8:6800/jsonrpc";
+	};
     if (TLE.getConfig("TLE_exporter") == "") {
       var exporters = [];
       for (var key in TLE.exporter) {
