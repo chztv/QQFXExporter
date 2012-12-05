@@ -62,6 +62,7 @@ var TLE = TLE || {};
   function init() {
   	//alert("这是旋风下载测试!1234——init");
   	$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
+  	$(".check_all_text").html('<li>Path: <input type="text" id="TLE_aria2_jsonrpc" style="width: 350px" value="'+TLE.getConfig("TLE_aria2_jsonrpc")+'"/></li>');
     //css
     $("head").append('<style>'
           +'.TLE_get_btnbox {position:relative; float:left; z-index:11}'
