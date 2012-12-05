@@ -113,38 +113,7 @@ var TLE = TLE || {};
 		var jsonrpc_path = "http://192.168.1.8:6800/jsonrpc";
 	};
     //jsonrpc设置span
-
-    var _set_notice_submit = set_notice_submit;
-    set_notice_submit = function(f) {
-	  alert(jsonrpc_path);
-      _set_notice_submit(f);
-      var enabled_exporter = [];
-      $(".TLE_setting_ck").each(function(n, e) {
-        if (e.checked) enabled_exporter.push(e.name.replace(/^TLE_ck_/, ""));
-      });
-      var config_str = (enabled_exporter.length == 0) ? "_" : enabled_exporter.join("|");
-      var jsonrpc_path = $("#QQ_aria2_jsonrpc").val();
-      
-      if (TLE.getConfig("TLE_exporter") != config_str || TLE.getConfig("TLE_aria2_jsonrpc") != jsonrpc_path) {
-        TLE.setConfig("TLE_exporter", config_str);
-        TLE.setConfig("TLE_aria2_jsonrpc", jsonrpc_path);
-        TS2.show('设置已生效',1);
-        setTimeout(function(){
-          setting.hide();
-          location.reload(true);
-        }, 1*1000);
-      }
-    };
-
-    function exporter_anchors(type) {
-      var enabled_exporter = TLE.getConfig("TLE_exporter").split("|");
-      var str = '';
-      $.each(TLE.exporter, function(n, f) {
-        if (enabled_exporter.indexOf(n) == -1) return;
-        str+=('<a href="#" title="'+n+'" onmouseover="this.className=\'sel_on\'" onmouseout="this.className=\'\'" onclick="'+type+'(this, TLE.exporter[\''+n+'\'])">'+n+'</a>');
-      });
-      return str;
-    }
+    $("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置">保存</a></span>');
 
 
     //close menu binding
