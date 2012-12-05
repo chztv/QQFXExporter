@@ -21,12 +21,6 @@ var jsonrpc_path = "http://192.168.1.8:6800/jsonrpc";
 			}
 		} );
 
-//保存按钮
-		$('.setting_button').live("click",function(){		    
-			//获取选择的列表
-		    alert("这是测试");
-		} );
-
 function start_normal_down_paul(filename,filehash){
 	$.ajax({
 			type: "POST",
@@ -60,6 +54,12 @@ function start_normal_down_paul(filename,filehash){
 			 }
 	 });
 }
+
+//保存按钮
+$('.setting_button').live("click",function(){		    
+	//获取选择的列表
+	XF.widget.msgbox.show("这是测试",2,2000);
+} );
 
 var TLE = TLE || {};
 
