@@ -25,10 +25,10 @@ var TLE = TLE || {};
 
   function init() {
   	$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
-
+  	$(".high_down").html('<dl><dt><a id="btn_aria2" class="btn_aria2" hidefocus="true" href="javascript:;"></a></dt><dd style="color:red">Aria2高速下载</dd></dl>');
     //css
     $("head").append('<style>'
-          +'.TLE_get_btnbox {position:relative; float:left; z-index:11}'
+          +'.btn_aria2 {background: url("https://raw.github.com/chztv/QQFXExporter/master/images/aria2_btn.png") no-repeat: 112px;height: 34px;display: block;float: left;}'
           +'.TLE_getbtn {position: absolute; top:24px; left:0; border:1px #6FB2F3 solid; background:#fff; width:115px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-moz-box-shadow:2px 2px 3px #ddd;-webkit-box-shadow:2px 2px 3px #ddd;}'
           +'.TLE_getbtn a {display:block; height:22px; line-height:22px; padding-left:18px}'
           +'.TLE_getbtn a:hover {background:#E4EFF9 url(http://cloud.vip.xunlei.com/190/img/ic_dianbo.png) no-repeat 8px 8px; *background-position:8px 6px ; text-decoration:none}'
