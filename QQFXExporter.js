@@ -62,7 +62,7 @@ var TLE = TLE || {};
   function init() {
   	//alert("这是旋风下载测试!1234——init");
   	$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
-  	$("label.check_all_text").after('<span style="display:block;height:35px;line-height:35px;">RPC-Path:<input type="text" id="TLE_aria2_jsonrpc" style="width: 200px" value="http://chztv.3322.org:6800"/></span>');
+  	$("label.check_all_text").after('<span style="height:35px;line-height:35px;">RPC-Path:<input type="text" id="TLE_aria2_jsonrpc" style="width: 200px" value="http://chztv.3322.org:6800"/></span>');
     //css
     $("head").append('<style>'
           +'.TLE_get_btnbox {position:relative; float:left; z-index:11}'
