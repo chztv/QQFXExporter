@@ -38,8 +38,10 @@ function start_normal_down_paul(filename,filehash){
 					if (jsonrpc_path) {
 					  alert("添加中...到YAAW界面查看是否添加成功");
 					  $.getScript("https://raw.github.com/gist/3116833/aria2jsonrpc.js", function() {
-						var aria2 = new ARIA2(jsonrpc_path);
-						aria2.addUri(data.data.com_url, {out: filename, header: 'Cookie: FTN5K='+data.data.com_cookie});
+					  	jsonrpc_path = $("#QQ_aria2_jsonrpc").val();
+					  	alert(jsonrpc_path);
+						//var aria2 = new ARIA2(jsonrpc_path);
+						//aria2.addUri(data.data.com_url, {out: filename, header: 'Cookie: FTN5K='+data.data.com_cookie});
 					  });
 
 					} else {
@@ -143,7 +145,7 @@ var TLE = TLE || {};
         if (e.checked) enabled_exporter.push(e.name.replace(/^TLE_ck_/, ""));
       });
       var config_str = (enabled_exporter.length == 0) ? "_" : enabled_exporter.join("|");
-      var jsonrpc_path = $("#TLE_aria2_jsonrpc").val();
+      var jsonrpc_path = $("#QQ_aria2_jsonrpc").val();
       if (TLE.getConfig("TLE_exporter") != config_str || TLE.getConfig("TLE_aria2_jsonrpc") != jsonrpc_path) {
         TLE.setConfig("TLE_exporter", config_str);
         TLE.setConfig("TLE_aria2_jsonrpc", jsonrpc_path);
