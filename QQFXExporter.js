@@ -5,54 +5,10 @@
 
 
 
-//普通下载按钮
-		$('.btn_normal2').live("click",function(){		    
-			//获取选择的列表
-		    var checked_list=$(".file_list_checkbox:checked");
-			if(checked_list.size()>0){
-			      var filename=checked_list.eq(0).parent().next().find("a").attr("title");
-			      var filehash=checked_list.eq(0).parent().next().find("a").attr("filehash");
-			      //开始统计
-				  stat("NORMAL_DOWN\t" + filehash);
-				  start_normal_down_paul(filename,filehash);
-			}else{
-			    XF.widget.msgbox.show("您还没选择文件呢!",2,2000);
-			}
-		} );
 
-function start_normal_down_paul(filename,filehash){
-	$.ajax({
-			type: "POST",
-			url:API_URL.handler_url+"/getComUrl",
-			cache: false,
-			data:{"filename":filename,"filehash":filehash},
-			timeout:3000,
-			dataType: "json",
-			success:function(data){
-			  if(data&&data.ret==0){
-				 $.cookie('FTN5K',data.data.com_cookie,{path:"/",domain:"qq.com"});
-				 //window.location=data.data.com_url;
-				 //显示Aria2c下载命令
-				 //alert( "aria2c -c -s10 -x10 --out "+filename+" --header 'Cookie: FTN5K="+data.data.com_cookie+";' '"+data.data.com_url+"'\n");				
-					if (jsonrpc_path) {
-					  alert("添加中...到YAAW界面查看是否添加成功");
-					  $.getScript("https://raw.github.com/gist/3116833/aria2jsonrpc.js", function() {
-					  	jsonrpc_path = $("#QQ_aria2_jsonrpc").val();
-					  	alert(jsonrpc_path);
-						var aria2 = new ARIA2(jsonrpc_path);
-						aria2.addUri(data.data.com_url, {out: filename, header: 'Cookie: FTN5K='+data.data.com_cookie});
-					  });
 
-					} else {
-					  alert("尚未设置Aria2 JSONRPC地址");
-					};
-			  }
-			 },
-			error:function(){
-				  XF.widget.msgbox.show("获取普通下载链失败,请重试!",2,2000);
-			 }
-	 });
-}
+
+
 
 //保存按钮
 $('.setting_button').live("click",function(){		    
@@ -115,7 +71,55 @@ var TLE = TLE || {};
     //jsonrpc设置span
     $("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置">保存</a></span>');
 
+	//普通下载按钮
+	$('.btn_normal2').live("click",function(){		    
+	//获取选择的列表
+	    var checked_list=$(".file_list_checkbox:checked");
+		if(checked_list.size()>0){
+		      var filename=checked_list.eq(0).parent().next().find("a").attr("title");
+		      var filehash=checked_list.eq(0).parent().next().find("a").attr("filehash");
+		      //开始统计
+			  stat("NORMAL_DOWN\t" + filehash);
+			  start_normal_down_paul(filename,filehash);
+		}else{
+		    XF.widget.msgbox.show("您还没选择文件呢!",2,2000);
+		}
+	} );
+	
+	function start_normal_down_paul(filename,filehash){
+	$.ajax({
+			type: "POST",
+			url:API_URL.handler_url+"/getComUrl",
+			cache: false,
+			data:{"filename":filename,"filehash":filehash},
+			timeout:3000,
+			dataType: "json",
+			success:function(data){
+			  if(data&&data.ret==0){
+				 $.cookie('FTN5K',data.data.com_cookie,{path:"/",domain:"qq.com"});
+				 //window.location=data.data.com_url;
+				 //显示Aria2c下载命令
+				 //alert( "aria2c -c -s10 -x10 --out "+filename+" --header 'Cookie: FTN5K="+data.data.com_cookie+";' '"+data.data.com_url+"'\n");				
+					if (jsonrpc_path) {
+					  alert("添加中...到YAAW界面查看是否添加成功");
+					  $.getScript("https://raw.github.com/gist/3116833/aria2jsonrpc.js", function() {
+					  	jsonrpc_path = $("#QQ_aria2_jsonrpc").val();
+					  	alert(jsonrpc_path);
+						var aria2 = new ARIA2(jsonrpc_path);
+						aria2.addUri(data.data.com_url, {out: filename, header: 'Cookie: FTN5K='+data.data.com_cookie});
+					  });
 
+					} else {
+					  alert("尚未设置Aria2 JSONRPC地址");
+					};
+			  }
+			 },
+			error:function(){
+				  XF.widget.msgbox.show("获取普通下载链失败,请重试!",2,2000);
+				 }
+	});
+	}	
+		
     //close menu binding
     $(document.body).bind("click",function(){
       $("div.TLE_p_getbtn, #TLE_batch_getbtn, #TLE_bt_getbtn").hide();
