@@ -108,7 +108,6 @@ var TLE = TLE || {};
 					  alert("添加中...到YAAW界面查看是否添加成功");
 					  $.getScript("https://raw.github.com/gist/3116833/aria2jsonrpc.js", function() {
 					  	jsonrpc_path = $("#QQ_aria2_jsonrpc").val();
-					  	alert(jsonrpc_path);
 						var aria2 = new ARIA2(jsonrpc_path);
 						aria2.addUri(data.data.com_url, {out: filename, header: 'Cookie: FTN5K='+data.data.com_cookie});
 					  });
