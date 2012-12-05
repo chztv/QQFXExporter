@@ -5,7 +5,7 @@
 // @description  export QQ lixian url to aria2/wget
 // @match      http://fenxiang.qq.com/x/*
 // @run-at document-end
-// @copyright  2012+, Binux <root@binux.me>
+// @copyright  2012+, chztv <0571chz@gmail.com>
 // ==/UserScript==
 
 var script = document.createElement('script');
