@@ -76,16 +76,19 @@ var TLE = TLE || {};
 	//获取选择的列表
 	    var checked_list=$(".file_list_checkbox:checked");
 		if(checked_list.size()>0){
+			checked_list.each(function(){
 		      var filename=checked_list.eq(0).parent().next().find("a").attr("title");
 		      var filehash=checked_list.eq(0).parent().next().find("a").attr("filehash");
 		      //开始统计
 			  stat("NORMAL_DOWN\t" + filehash);
-			  start_normal_down_paul(filename,filehash);
+			  //start_normal_down_paul(filename,filehash);
+			  alert(filename);
+			});
 		}else{
 		    XF.widget.msgbox.show("您还没选择文件呢!",2,2000);
 		}
 	} );
-	
+	//QQ旋风下载链接获取并转推至aria2-jsonrpc
 	function start_normal_down_paul(filename,filehash){
 	$.ajax({
 			type: "POST",
