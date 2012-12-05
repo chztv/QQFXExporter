@@ -21,6 +21,12 @@ var jsonrpc_path = "http://192.168.1.8:6800/jsonrpc";
 			}
 		} );
 
+//保存按钮
+		$('.setting_button').live("click",function(){		    
+			//获取选择的列表
+		    alert("这是测试");
+		} );
+
 function start_normal_down_paul(filename,filehash){
 	$.ajax({
 			type: "POST",
@@ -64,7 +70,7 @@ var TLE = TLE || {};
   function init() {
   	//alert("这是旋风下载测试!1234——init");
   	$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
-  	$("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="#" class="btn_nol" id="setting_button_sure" onclick="set_notice_submit(0);return false;" title="保存设置">保存</a></span>');
+  	$("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置">保存</a></span>');
     //css
     $("head").append('<style>'
           +'.TLE_get_btnbox {position:relative; float:left; z-index:11}'
