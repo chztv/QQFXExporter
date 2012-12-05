@@ -77,8 +77,9 @@ var TLE = TLE || {};
 	    var checked_list=$(".file_list_checkbox:checked");
 		if(checked_list.size()>0){
 			checked_list.each(function(){
-		      var filename=checked_list.eq(0).parent().next().find("a").attr("title");
+		      //var filename=checked_list.eq(0).parent().next().find("a").attr("title");
 		      var filehash=checked_list.eq(0).parent().next().find("a").attr("filehash");
+		      var filename=$(this).parent().next().find("a").attr("title");
 		      //开始统计
 			  stat("NORMAL_DOWN\t" + filehash);
 			  //start_normal_down_paul(filename,filehash);
