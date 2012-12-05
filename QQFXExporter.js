@@ -58,6 +58,7 @@ function start_normal_down_paul(filename,filehash){
 //保存按钮
 $('.setting_button').live("click",function(){		    
 	//获取选择的列表
+	TLE.setConfig("TLE_aria2_jsonrpc", $("#QQ_aria2_jsonrpc").val());
 	XF.widget.msgbox.show(TLE.getConfig("TLE_aria2_jsonrpc"),2,2000);
 } );
 
