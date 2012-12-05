@@ -62,7 +62,7 @@ var TLE = TLE || {};
   function init() {
   	//alert("这是旋风下载测试!1234——init");
   	$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
-  	$("label.check_all_text").after('<span style="height:35px;line-height:35px;">RPC-Path:<input type="text" id="TLE_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/></span>');
+  	$("label.check_all_text").after('<span style="height:35px;line-height:35px;">RPC-Path:<input type="text" id="TLE_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="#" class="btn_nol" id="setting_button_sure" onclick="set_notice_submit(0);return false;" title="保存设置">保存设置</a></span>');
     //css
     $("head").append('<style>'
           +'.TLE_get_btnbox {position:relative; float:left; z-index:11}'
@@ -132,7 +132,7 @@ var TLE = TLE || {};
                 return str;
               })()+'</li>'
               +'<li><b>Aria2 JSON-RPC Path</b></li>'
-              +'<li>Path: <input type="text" id="TLE_aria2_jsonrpc" style="width: 350px" value="'+TLE.getConfig("TLE_aria2_jsonrpc")+'"/></li>'
+              //+'<li>Path: <input type="text" id="TLE_aria2_jsonrpc" style="width: 350px" value="'+TLE.getConfig("TLE_aria2_jsonrpc")+'"/></li>'
             +'</ul>'
           +'$1'));
     var _set_notice_submit = set_notice_submit;
@@ -143,7 +143,7 @@ var TLE = TLE || {};
         if (e.checked) enabled_exporter.push(e.name.replace(/^TLE_ck_/, ""));
       });
       var config_str = (enabled_exporter.length == 0) ? "_" : enabled_exporter.join("|");
-      var jsonrpc_path = "http://chztv.3322.org:6800/jsonrpc";
+      var jsonrpc_path = $("#TLE_aria2_jsonrpc").val();
       if (TLE.getConfig("TLE_exporter") != config_str || TLE.getConfig("TLE_aria2_jsonrpc") != jsonrpc_path) {
         TLE.setConfig("TLE_exporter", config_str);
         TLE.setConfig("TLE_aria2_jsonrpc", jsonrpc_path);
