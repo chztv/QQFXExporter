@@ -64,7 +64,7 @@ var TLE = TLE || {};
   function init() {
   	//alert("这是旋风下载测试!1234——init");
   	$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
-  	$("label.check_all_text").after('<span style="height:35px;line-height:35px;">RPC-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="#" class="btn_nol" id="setting_button_sure" onclick="set_notice_submit2(0);return false;" title="保存设置">保存设置</a></span>');
+  	$("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="#" class="btn_nol" id="setting_button_sure" onclick="set_notice_submit2(0);return false;" title="保存设置">保存</a></span>');
     //css
     $("head").append('<style>'
           +'.TLE_get_btnbox {position:relative; float:left; z-index:11}'
@@ -146,6 +146,7 @@ var TLE = TLE || {};
       });
       var config_str = (enabled_exporter.length == 0) ? "_" : enabled_exporter.join("|");
       var jsonrpc_path = $("#QQ_aria2_jsonrpc").val();
+      alert(jsonrpc_path);
       if (TLE.getConfig("TLE_exporter") != config_str || TLE.getConfig("TLE_aria2_jsonrpc") != jsonrpc_path) {
         TLE.setConfig("TLE_exporter", config_str);
         TLE.setConfig("TLE_aria2_jsonrpc", jsonrpc_path);
