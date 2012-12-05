@@ -58,7 +58,7 @@ function start_normal_down_paul(filename,filehash){
 //保存按钮
 $('.setting_button').live("click",function(){		    
 	//获取选择的列表
-	XF.widget.msgbox.show("这是测试",2,2000);
+	XF.widget.msgbox.show(TLE.getConfig("TLE_aria2_jsonrpc"),2,2000);
 } );
 
 var TLE = TLE || {};
