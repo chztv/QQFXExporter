@@ -5,8 +5,8 @@
 将QQ分享下载地址导出成aria2等下载命令，方便Linux/Mac用户使用</p>
 
 <ul>
-<li><strong>目前无需拥有迅雷离线帐号即可使用此插件</strong></li>
-<li>原生导出界面整合, 原生设置界面整合</li>
+<li><strong>目前无需登录QQ帐号即可使用此插件</strong></li>
+<li>原生导出界面整合, 补充aria2-RPC设置界面整合</li>
 <li>目前只支持aria2-YAAW添加使用</li>
 <li>需要自己配置支持RPC的Aria2先</li>
 
