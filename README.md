@@ -26,5 +26,5 @@
 <h2>
 <a name="license" class="anchor" href="#license"><span class="mini-icon mini-icon-link"></span></a>License</h2>
 
-<p>yaaw is licensed under GNU Lesser General Public License.
+<p>QQFXExporter is licensed under GNU Lesser General Public License.
 You may get a copy of the GNU Lesser General Public License from <a href="http://www.gnu.org/licenses/lgpl.txt">http://www.gnu.org/licenses/lgpl.txt</a></p>
