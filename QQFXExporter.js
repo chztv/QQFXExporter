@@ -24,8 +24,8 @@ var TLE = TLE || {};
 (function(TLE) {
 
   function init() {
-  	$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
-  	$(".high_down").html('<dl><dt><a id="btn_aria2" class="btn_aria2" hidefocus="true" href="javascript:;"></a></dt><dd style="color:red">Aria2高速下载</dd></dl>');
+  	//$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
+  	$(".high_down").html('<dl><dt><a id="btn_aria2" class="btn_aria2" hidefocus="true" href="javascript:;"></a></dt><dd style="color:red"><a href="https://github.com/chztv/QQFXExporter" target="_blank">Aria2高速下载</a></dd></dl>');
     //css
     $("head").append('<style>'
           +'.btn_aria2 {background:url("https://raw.github.com/chztv/QQFXExporter/master/images/aria2_btn.png") no-repeat left top; width:112px; height: 34px;display: block;float: left;}'
@@ -69,10 +69,10 @@ var TLE = TLE || {};
 		var jsonrpc_path = "http://192.168.1.8:6800/jsonrpc";
 	};
     //jsonrpc设置span
-    $("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/><a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置">保存</a></span>');
+    $("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/>  <a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置" style="color:#666">保存</a></span>');
 
 	//普通下载按钮
-	$('.btn_normal2').live("click",function(){		    
+	$('.btn_aria2').live("click",function(){		    
 	//获取选择的列表
 	    var checked_list=$(".file_list_checkbox:checked");
 		if(checked_list.size()>0){
