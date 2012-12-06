@@ -9,6 +9,7 @@
 <li>原生导出界面整合, 补充aria2-RPC设置界面整合</li>
 <li>目前只支持aria2-YAAW添加使用</li>
 <li>需要自己配置支持RPC的Aria2先</li>
+<li>本脚本参考ThunderLixianExporter修改而成，感谢binux！</li>
 
 <h2>
 <a name="usage" class="anchor" href="#usage"><span class="mini-icon mini-icon-link"></span></a>Usage</h2>
