@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name       QQLixianExporter
 // @namespace  http://fenxiang.qq.com/
-// @version    0.01
+// @version    0.02
 // @description  export QQ lixian url to aria2/wget
 // @match      http://fenxiang.qq.com/x/*
 // @match      http://fenxiang.qq.com/share/*

@@ -2,6 +2,7 @@
 // Author: Paul Chan<paul@paulreina.com>
 //         http://www.chztv.com
 // Created on 12-12-4 AM1:19
+// Modified on 13-4-22 
 
 
 
@@ -25,7 +26,7 @@ var TLE = TLE || {};
 
   function init() {
   	//$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
-  	$(".high_down").html('<dl><dt><a id="btn_aria2" class="btn_aria2" hidefocus="true" href="javascript:;"></a></dt><dd style="color:red"><a href="https://github.com/chztv/QQFXExporter" target="_blank">Aria2高速下载</a></dd></dl>');
+  	$(".high_down").html('<dl><dt><a id="btn_aria2" class="btn_aria2" hidefocus="true" href="javascript:;"></a></dt><dd style="color:red"></dd></dl>');
   	$(".down_xf").html('<a id="btn_aria2" class="btn_aria2" hidefocus="true" href="javascript:;"></a>');
     //css
     $("head").append('<style>'
@@ -70,7 +71,7 @@ var TLE = TLE || {};
 		var jsonrpc_path = "http://192.168.1.8:6800/jsonrpc";
 	};
     //jsonrpc设置span
-    $("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">jsonrpc-Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/>  <a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置" style="color:#666">保存</a></span>');
+    $("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">Aria2 JSON-RPC Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/>  <a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置" style="color:#666">保存</a></span>');
 
 	//普通下载按钮
 	$('.btn_aria2').live("click",function(){		    
