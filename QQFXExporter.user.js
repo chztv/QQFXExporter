@@ -11,7 +11,6 @@
 
 var script = document.createElement('script');
 script.id = "TLE_script";
-alert (location.host);
 if (location.host == "fenxiang.qq.com") {
   script.src = "https://raw.github.com/chztv/QQFXExporter/master/QQFXExporter.js";
 } else {
