@@ -31,6 +31,7 @@ var TLE = TLE || {};
   	$("#jisu_box").html('<a href="javascript:;" class="download_btn" id="jisu_btn_chz" title="Aria2下载"><em>Aria下载</em></a><span class="box_info"><i><b></b></i><span class="download_info">平均下载速度统计</span><span class="download_speed"><span>3000</span>KB/s</span></span>');
     //css
     $("head").append('<style>'
+          +'#jisu_btn_chz {background:url(https://raw.github.com/chztv/QQFXExporter/master/images/aria2_btn_V2.png) no-repeat left top;}'
           +'.btn_aria2 {background:url("https://raw.github.com/chztv/QQFXExporter/master/images/aria2_btn.png") no-repeat left top; width:112px; height: 34px;display: block;float: left;}'
           +'.TLE_getbtn {position: absolute; top:24px; left:0; border:1px #6FB2F3 solid; background:#fff; width:115px;-moz-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;-moz-box-shadow:2px 2px 3px #ddd;-webkit-box-shadow:2px 2px 3px #ddd;}'
           +'.TLE_getbtn a {display:block; height:22px; line-height:22px; padding-left:18px}'
@@ -47,7 +48,7 @@ var TLE = TLE || {};
           +'.TLE_icdwlocal { padding-left: 20px; display: inline-block; background: url(http://cloud.vip.xunlei.com/190/img/lx/bg_menu.png) no-repeat 0 999em; background-position: 0 -108px; }'
           +'.rwbtn.ic_redownloca { display: none !important; }'
           +'.menu { width: 700px !important; }'
-          +'#jisu_btn_chz{background-image:url(https://raw.github.com/chztv/QQFXExporter/master/images/aria2_btn_V2.png);}'
+          
         +'</style>');
 
     //setting
