@@ -128,8 +128,6 @@ var TLE = TLE || {};
 	}	
 	
     // 新版YAAW下载
-    Download.prototype.jisu = function() {
-        var _this = this;
         $('#jisu_btn_chz').click(function(ev) {
             ev.preventDefault();
             if (isIpad) {
@@ -149,7 +147,7 @@ var TLE = TLE || {};
                 alert("开始YAAW下载");
             }
         });
-    };
+
     
     
 		
