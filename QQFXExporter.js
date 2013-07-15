@@ -130,7 +130,16 @@ var TLE = TLE || {};
     // 新版YAAW下载
         $('#jisu_btn_chz').click(function(ev) {
             ev.preventDefault();
-            alert("开始YAAW下载");
+            var _this = $(this),
+                target = ev.currentTarget,
+                evt = ev.originalEvent,
+                filename = _this.attr('title'),
+                filehash = _this.attr('filehash'),
+                filesize = _this.attr('filesize'),
+                qhref = _this.attr('qhref');
+                
+            alert(filename);
+            alert(filehash);
         });
 
     
