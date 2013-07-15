@@ -136,7 +136,7 @@ var TLE = TLE || {};
     		      var filename=$(this).parent().next().next().find("a").attr("title");
     		      var filehash=$(this).parent().next().next().find("a").attr("filehash");
     		      stat("NORMAL_DOWN\t" + filehash);
-    		      start_normal_down_paul(filename,filehash);
+    		      start_normal_down_paul_V2(filename,filehash);
     		     
     			});
     		}else{
@@ -145,7 +145,10 @@ var TLE = TLE || {};
 
         });
 
-    
+	//QQ旋风下载链接获取并转推至aria2-jsonrpc
+	function start_normal_down_paul_V2(filename,filehash){
+        alert(config.API_URL.handler_url);
+	}	    
     
 		
     //close menu binding
