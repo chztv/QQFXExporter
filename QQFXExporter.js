@@ -159,8 +159,7 @@ var TLE = TLE || {};
 				 $.cookie('FTN5K',data.data.com_cookie,{path:"/",domain:"qq.com"});
 				 //window.location=data.data.com_url;
 				 //显示Aria2c下载命令
-				 alert( "aria2c -c -s10 -x10 --out "+filename+" --header 'Cookie: FTN5K="+data.data.com_cookie+";' '"+data.data.com_url+"'\n"+","+$("#QQ_aria2_jsonrpc").val());				
-				 /*
+				 //alert( "aria2c -c -s10 -x10 --out "+filename+" --header 'Cookie: FTN5K="+data.data.com_cookie+";' '"+data.data.com_url+"'\n"+","+$("#QQ_aria2_jsonrpc").val());				
 					if (jsonrpc_path) {
 					  alert("添加中...到YAAW界面查看是否添加成功");
 					  $.getScript("https://raw.github.com/gist/3116833/aria2jsonrpc.js", function() {
@@ -171,7 +170,7 @@ var TLE = TLE || {};
 
 					} else {
 					  alert("尚未设置Aria2 JSONRPC地址");
-					};*/
+					};
 			  }
 			 },
 			error:function(){
