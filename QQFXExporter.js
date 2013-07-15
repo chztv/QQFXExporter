@@ -45,9 +45,9 @@ var TLE = TLE || {};
           +'.TLE_down_btn:active {background-position:0 -28px; }'
           +'.TLE_down_btn:active span {background-position:right -28px;}'
           +'.TLE_icdwlocal { padding-left: 20px; display: inline-block; background: url(http://cloud.vip.xunlei.com/190/img/lx/bg_menu.png) no-repeat 0 999em; background-position: 0 -108px; }'
-
           +'.rwbtn.ic_redownloca { display: none !important; }'
           +'.menu { width: 700px !important; }'
+          +'#jisu_btn_chz{background-image:url(https://raw.github.com/chztv/QQFXExporter/master/images/aria2_btn_V2.png);}'
         +'</style>');
 
     //setting
