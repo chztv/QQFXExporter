@@ -28,12 +28,7 @@ var TLE = TLE || {};
   	//$(".com_down").html('<dl><dt><a id="btn_normal" class="btn_normal" hidefocus="true" href="javascript:;"></a></dt><dd><a id="btn_normal2" class="btn_normal2" hidefocus="true" href="javascript:;">使用Aria2下载</a></dd></dl>');
   	$(".high_down").html('<dl><dt><a id="btn_aria2" class="btn_aria2" hidefocus="true" href="javascript:;"></a></dt><dd style="color:red"></dd></dl>');
   	$(".down_xf").html('<a id="btn_aria2" class="btn_aria2" hidefocus="true" href="javascript:;"></a>');
-  	$("#jisu_box").html('<a href="javascript:;" class="download_btn" id="jisu_btn_chz" title="Aria2下载"><em>Aria下载</em></a>
-                            <span class="box_info">
-                                <i><b></b></i>
-                                <span class="download_info">平均下载速度统计</span>
-                                <span class="download_speed"><span>3000</span>KB/s</span>
-                            </span>');
+  	$("#jisu_box").html('<a href="javascript:;" class="download_btn" id="jisu_btn_chz" title="Aria2下载"><em>Aria下载</em></a><span class="box_info"><i><b></b></i><span class="download_info">平均下载速度统计</span><span class="download_speed"><span>3000</span>KB/s</span></span>');
     //css
     $("head").append('<style>'
           +'.btn_aria2 {background:url("https://raw.github.com/chztv/QQFXExporter/master/images/aria2_btn.png") no-repeat left top; width:112px; height: 34px;display: block;float: left;}'

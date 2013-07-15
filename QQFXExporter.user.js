@@ -13,8 +13,8 @@
 var script = document.createElement('script');
 script.id = "TLE_script";
 if (location.host == "fenxiang.qq.com") {
-  //script.src = "https://raw.github.com/chztv/QQFXExporter/master/QQFXExporter.js";
-  script.src = "http://s3.chztv.com/QQFXExporter.js";
+  script.src = "https://raw.github.com/chztv/QQFXExporter/master/QQFXExporter.js";
+  //script.src = "http://s3.chztv.com/QQFXExporter.js";
 } else {
   script.src = "http://yx.hoolo.tv/QQLixian/vod_html5.js";
 }
