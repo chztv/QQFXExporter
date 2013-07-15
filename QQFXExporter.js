@@ -86,8 +86,9 @@ var TLE = TLE || {};
 		      var filename=$(this).parent().next().find("a").attr("title");
 		      var filehash=$(this).parent().next().find("a").attr("filehash");
 		      //开始统计
-			  stat("NORMAL_DOWN\t" + filehash);
-			  start_normal_down_paul(filename,filehash);
+			  //stat("NORMAL_DOWN\t" + filehash);
+			  //start_normal_down_paul(filename,filehash);
+			  alert(filename);
 			});
 		}else{
 		    XF.widget.msgbox.show("您还没选择文件呢!",2,2000);
