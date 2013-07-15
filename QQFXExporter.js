@@ -74,6 +74,7 @@ var TLE = TLE || {};
 	};
     //jsonrpc设置span
     $("label.check_all_text").after('<span style="height:35px;line-height:35px;padding-left:10px;">Aria2 JSON-RPC Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/>  <a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置" style="color:#666">保存</a></span>');
+    $("span.total_size").after('<span style="height:35px;line-height:35px;padding-left:10px;">Aria2 JSON-RPC Path:<input type="text" id="QQ_aria2_jsonrpc" style="width: 200px" value="'+jsonrpc_path+'"/>  <a href="javascript:;" hidefocus="true" class="setting_button" id="setting_button" title="保存设置" style="color:#666">保存</a></span>');
 
 	//普通下载按钮
 	$('.btn_aria2').live("click",function(){		    
@@ -158,7 +159,7 @@ var TLE = TLE || {};
 				 $.cookie('FTN5K',data.data.com_cookie,{path:"/",domain:"qq.com"});
 				 //window.location=data.data.com_url;
 				 //显示Aria2c下载命令
-				 alert( "aria2c -c -s10 -x10 --out "+filename+" --header 'Cookie: FTN5K="+data.data.com_cookie+";' '"+data.data.com_url+"'\n");				
+				 alert( "aria2c -c -s10 -x10 --out "+filename+" --header 'Cookie: FTN5K="+data.data.com_cookie+";' '"+data.data.com_url+"'\n"+","+$("#QQ_aria2_jsonrpc").val());				
 				 /*
 					if (jsonrpc_path) {
 					  alert("添加中...到YAAW界面查看是否添加成功");
