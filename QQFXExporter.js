@@ -136,7 +136,7 @@ var TLE = TLE || {};
 
     		      var filename=$(this).parent().next().next().find("a").attr("title");
     		      var filehash=$(this).parent().next().next().find("a").attr("filehash");
-    		      alert(filename);
+    		      alert(filename+","+filehash);
     		     
     			});
     		}else{
