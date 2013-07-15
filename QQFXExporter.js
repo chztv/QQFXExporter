@@ -128,18 +128,20 @@ var TLE = TLE || {};
 	}	
 	
     // 新版YAAW下载
-        $('#jisu_btn_chz').click(function(ev) {
-            ev.preventDefault();
-            var _this = $(this),
-                target = ev.currentTarget,
-                evt = ev.originalEvent,
-                filename = _this.attr('title'),
-                filehash = _this.attr('filehash'),
-                filesize = _this.attr('filesize'),
-                qhref = _this.attr('qhref');
-                
-            alert(filename);
-            alert(filehash);
+        $('#jisu_btn_chz').click(function() {
+    	    var checked_list=$(".file_list_checkbox:checked");
+    		if(checked_list.size()>0){
+    			checked_list.each(function(){
+
+    		      var filename=$(this).parent().next().find("a").attr("title");
+    		      var filehash=$(this).parent().next().find("a").attr("filehash");
+    		      alert(filename+","+filehash);
+    		     
+    			});
+    		}else{
+    		    alert("您还没选择文件呢!");
+    		}            
+
         });
 
     
