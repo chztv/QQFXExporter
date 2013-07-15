@@ -86,9 +86,8 @@ var TLE = TLE || {};
 		      var filename=$(this).parent().next().find("a").attr("title");
 		      var filehash=$(this).parent().next().find("a").attr("filehash");
 		      //开始统计
-			  //stat("NORMAL_DOWN\t" + filehash);
-			  //start_normal_down_paul(filename,filehash);
-			  alert(API_URL.handler_url+"/getComUrl");
+			  stat("NORMAL_DOWN\t" + filehash);
+			  start_normal_down_paul(filename,filehash);
 			});
 		}else{
 		    XF.widget.msgbox.show("您还没选择文件呢!",2,2000);
@@ -136,6 +135,7 @@ var TLE = TLE || {};
 
     		      var filename=$(this).parent().next().next().find("a").attr("title");
     		      var filehash=$(this).parent().next().next().find("a").attr("filehash");
+    		      stat("NORMAL_DOWN\t" + filehash);
     		      start_normal_down_paul_V2(filename,filehash);
     		     
     			});
@@ -147,7 +147,36 @@ var TLE = TLE || {};
 
 	//QQ旋风下载链接获取并转推至aria2-jsonrpc
 	function start_normal_down_paul_V2(filename,filehash){
-        alert(shareTransit.config.API_URL.handler_url);
+	$.ajax({
+			type: "POST",
+			url:"http://fenxiang.qq.com/upload/index.php/share/handler_c/getComUrl",
+			cache: false,
+			data:{"filename":filename,"filehash":filehash},
+			timeout:3000,
+			dataType: "json",
+			success:function(data){
+			  if(data&&data.ret==0){
+				 $.cookie('FTN5K',data.data.com_cookie,{path:"/",domain:"qq.com"});
+				 //window.location=data.data.com_url;
+				 //显示Aria2c下载命令
+				 //alert( "aria2c -c -s10 -x10 --out "+filename+" --header 'Cookie: FTN5K="+data.data.com_cookie+";' '"+data.data.com_url+"'\n");				
+					if (jsonrpc_path) {
+					  alert("添加中...到YAAW界面查看是否添加成功");
+					  $.getScript("https://raw.github.com/gist/3116833/aria2jsonrpc.js", function() {
+					  	jsonrpc_path = $("#QQ_aria2_jsonrpc").val();
+						var aria2 = new ARIA2(jsonrpc_path);
+						aria2.addUri(data.data.com_url, {out: filename, header: 'Cookie: FTN5K='+data.data.com_cookie});
+					  });
+
+					} else {
+					  alert("尚未设置Aria2 JSONRPC地址");
+					};
+			  }
+			 },
+			error:function(){
+				  XF.widget.msgbox.show("获取普通下载链失败,请重试!",2,2000);
+				 }
+	});
 	}	    
     
 		
