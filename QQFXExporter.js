@@ -135,7 +135,6 @@ var TLE = TLE || {};
 
     		      var filename=$(this).parent().next().next().find("a").attr("title");
     		      var filehash=$(this).parent().next().next().find("a").attr("filehash");
-    		      stat("NORMAL_DOWN\t" + filehash);
     		      start_normal_down_paul_V2(filename,filehash);
     		     
     			});
