@@ -128,7 +128,7 @@ var TLE = TLE || {};
 	}	
 	
     // 新版YAAW下载
-    Download.prototype.jisu_chz = function() {
+    Download.prototype.jisu = function() {
         var _this = this;
         $('#jisu_btn_chz').click(function(ev) {
             ev.preventDefault();
