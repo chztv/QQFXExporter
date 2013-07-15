@@ -126,6 +126,32 @@ var TLE = TLE || {};
 				 }
 	});
 	}	
+	
+    // 新版YAAW下载
+    Download.prototype.jisu_chz = function() {
+        var _this = this;
+        $('#jisu_btn_chz').click(function(ev) {
+            ev.preventDefault();
+            if (isIpad) {
+                window.art && art.dialog({
+                    //width: 300,
+                    //height: 140,
+                    fixed: true,
+                    lock: true,
+                    opacity: 0.7,
+                    time: 4,
+                    title: '下载',
+                    content: '<div class="save_status status_warn">' +
+                             '  <i class="status_icon"></i><strong class="status_text">您还没有安装旋风客户端，请在PC端安装旋风客户端!</strong>' +
+                             '</div>'
+                });
+            } else {
+                alert("开始YAAW下载");
+            }
+        });
+    };
+    
+    
 		
     //close menu binding
     $(document.body).bind("click",function(){
